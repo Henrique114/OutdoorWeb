@@ -1,4 +1,7 @@
 
+using Outdoor.Interfaces;
+using Outdoor.Models;
+
 namespace Outdoor
 {
     public class Program
@@ -8,7 +11,7 @@ namespace Outdoor
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-
+            builder.Services.AddSingleton<IRepository<CulturalEventModel>, InMemoryRepository<CulturalEventModel>>();
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
